@@ -21,7 +21,7 @@ jobs:
     name: Ready to be merged
     steps:
     - name: Conditional status
-      uses: lourenci/conditional-status-action@v1.0.0-beta.3
+      uses: lourenci/conditional-status-action@v1.0.0-beta.4
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         context: 'continuous-integration/jenkins/branch'
