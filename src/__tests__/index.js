@@ -3,6 +3,24 @@ const github = require('@actions/github');
 
 beforeEach(jest.clearAllMocks)
 
+describe('#push', () => {
+  beforeEach(() => {
+    github.setEvent('push')
+    jest.isolateModules(() => {
+      require('../index.js')
+    })
+  })
+
+  it('updates the commit status as "pending"', () => {
+    expect(github.createStatus).toHaveBeenCalledTimes(1)
+    expect(github.createStatus).toHaveBeenCalledWith(expect.objectContaining({
+      sha: 'sha',
+      state: 'pending',
+      context: 'conditional-status'
+    }))
+  })
+})
+
 describe('#status', () => {
   beforeEach(() => github.setEvent('status'))
 

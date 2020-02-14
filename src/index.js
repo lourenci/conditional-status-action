@@ -7,6 +7,15 @@ const context = core.getInput('context')
 const octokit = new github.GitHub(token)
 const hookContext = github.context
 
+if (hookContext.eventName === 'push') {
+  octokit.repos.createStatus({
+    ...hookContext.repo,
+    sha: hookContext.sha,
+    state: 'pending',
+    context: 'conditional-status'
+  })
+}
+
 if (hookContext.eventName === 'status') {
   if (context === hookContext.payload.context) {
     if (['success', 'pending'].includes(hookContext.payload.state)) {
