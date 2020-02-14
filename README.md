@@ -13,18 +13,15 @@ Jenkins is a very useful example: it only marks you commit as `pending` when it 
 ```yml
 name: Ready to be merged
 
-on: [push, pull_request]
+on: [push, status]
 
 jobs:
-  ready-to-be-merged:
+  test:
     runs-on: ubuntu-latest
+    name: Ready to be merged
     steps:
-    - uses: actions/checkout@v1
-    - uses: actions/setup-node@v1
+    - uses: actions/conditional-status@v1.0.0-beta.1
       with:
-        node-version: '12.x'
-    - uses: actions/setup-node@v1
-      with:
-        context: 'continuous-integration/jenkins/branch'
         token: ${{ secrets.GITHUB_TOKEN }}
+        context: 'jenkins'
 ```
