@@ -1,0 +1,12 @@
+name: 'Conditional status'
+description: 'Add a successful status as soon as some other specified status turns into successful'
+inputs:
+  context:
+    description: 'Name of the context to be checked'
+    required: true
+  token:
+    description: 'Your GITHUB_TOKEN'
+    required: true
+runs:
+  using: 'node12'
+  main: 'index.js'

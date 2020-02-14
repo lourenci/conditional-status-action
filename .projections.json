@@ -1,0 +1,10 @@
+{
+  "src/__tests__/*.js": {
+    "alternate": "src/{}.js",
+    "start": "yarn jest:watch src/__tests__/{}.js"
+  },
+  "src/*.js": {
+    "alternate": "src/__tests__/{}.js",
+    "start": "yarn jest:watch src/__tests__/{}.js"
+  }
+}

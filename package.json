@@ -1,0 +1,15 @@
+{
+  "repository": "https://github.com/lourenci/react-kanban",
+  "author": "Leandro Lourenci",
+  "license": "MIT",
+  "dependencies": {
+    "@actions/core": "^1.2.2",
+    "@actions/github": "^2.1.0"
+  },
+  "devDependencies": {
+    "jest": "^25.1.0"
+  },
+  "scripts": {
+    "jest:watch": "jest --no-coverage --verbose --watch --runInBand --notify --notifyMode always"
+  }
+}
