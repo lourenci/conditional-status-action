@@ -20,8 +20,9 @@ jobs:
     runs-on: ubuntu-latest
     name: Ready to be merged
     steps:
-    - uses: actions/conditional-status@v1.0.0-beta.1
+    - name: Conditional status
+      uses: lourenci/conditional-status-action@v1.0.0-beta.2
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
-        context: 'jenkins'
+        context: 'continuous-integration/jenkins/branch'
 ```
